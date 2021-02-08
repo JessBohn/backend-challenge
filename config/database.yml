@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: backend_challenge_development
   pool: 5
-  username: postgres
+  username: backend_challenge
   password: Lambch0p
   timeout: 5000
 
@@ -47,8 +47,8 @@ development:
 # test:
 #   adapter: postgresql
 #   encoding: unicode
-#   database: myapp_test
+#   database: backend_challenge_test
 #   pool: 5
-#   username: brenden
-#   password:
+#   username: backend_challenge
+#   password: Lambch0p
 #   timeout: 5000
