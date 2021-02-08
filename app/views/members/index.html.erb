@@ -9,6 +9,6 @@
 
   <ul>
     <% @members.each do |member| %>
-      <li>Name: <%= link_to member.name, member_path(member) %>, Website: <%= member.website %>, Friends: <i>number of friends go here</i></li>
+      <li>Name: <%= link_to member.name, member_path(member) %>, Website: <%= member.website %>, Friends: <%= member.friend_count %></li>
     <% end %>
   </ul>

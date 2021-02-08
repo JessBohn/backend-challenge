@@ -25,4 +25,8 @@ class Member < ApplicationRecord
   def friend?(user)
      friends.include?(user)
   end
+
+  def friend_count
+     friends.count
+  end
 end
