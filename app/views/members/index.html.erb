@@ -9,6 +9,7 @@
 
   <ul>
     <% @members.each do |member| %>
+    <%# currently using the full website URL until shortener is implemented %>
       <li>Name: <%= link_to member.name, member_path(member) %>, Website: <%= member.website %>, Friends: <%= member.friend_count %></li>
     <% end %>
   </ul>
