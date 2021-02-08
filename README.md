@@ -1,5 +1,8 @@
 # EverlyWell Backend Challenge
 
+### Setup
+This application contains a seed file to help with confirming functionality
+
 ### Overview
 
 Using Ruby on Rails, we'd like you to create a simple experts directory search tool. The tool can either be a full featured application or API only.
@@ -11,7 +14,7 @@ Using Ruby on Rails, we'd like you to create a simple experts directory search t
 The application should fulfill the following requirements:
 
 * ~~A member can be created using their name and a personal website address.~~
-* When a member is created, all the heading (h1-h3) values are pulled in from the website to that members profile.
+* ~~When a member is created, all the heading (h1-h3) values are pulled in from the website to that members profile.~~
 * The website url is shortened (e.g. using http://goo.gl).
 * ~~After the member has been added, I can define their friendships with other existing members. Friendships are bi-directional i.e. If David is a friend of Oliver, Oliver is always a friend of David as well.~~
 * ~~The interface should list all members with their name, short url and the number of friends.~~
