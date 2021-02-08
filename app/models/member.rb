@@ -1,13 +1,19 @@
+require 'open-uri'
 class Member < ApplicationRecord
    has_many :friendships
    has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   # Tried using postgres/ACtiveRecord array query using ANY? but only works with exact matches
   # The below method works, but is overly complex and makes too many calls
   # Will refactor this after tackling other requirements
+
+  before_create do
+     self.tags = self.set_headers
+  end
+
   def self.search(search='')
     members = []
     if search.present?
-      Member.all.each do |member|
+      self.all.each do |member|
         if member.tags.any?(/#{search}/)
           members << member
         end
@@ -16,6 +22,19 @@ class Member < ApplicationRecord
       members = self.all
     end
     members
+  end
+
+  def set_headers
+     doc = Nokogiri::HTML(URI.open(website))
+     h1 = find_doc_selector(doc, 'h1').present? ? find_doc_selector(doc, 'h1') : doc.css('title').first.text.strip
+     h2 = find_doc_selector(doc, 'h2')
+     h3 = find_doc_selector(doc, 'h3')
+     tags << h1 << h2 << h3
+     tags.compact
+  end
+
+  def find_doc_selector(doc, selector)
+     doc.css(selector).any? ? doc.css(selector).first.text.strip : nil
   end
 
   def friends
