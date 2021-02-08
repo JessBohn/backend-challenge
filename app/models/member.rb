@@ -19,7 +19,7 @@ class Member < ApplicationRecord
   end
 
   def friends
-     friends = (friendships + inverse_friendships).compact
+     (friendships.map{|friendship| friendship.friend} + inverse_friendships.map{|friendship| friendship.member}).compact
   end
 
   def friend?(user)
