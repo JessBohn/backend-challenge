@@ -7,6 +7,8 @@
     <%= form.submit "Search" %>
   <% end %>
 
+  <%# render _form for Member create that would send to member#create   %>
+
   <ul>
     <% @members.each do |member| %>
     <%# currently using the full website URL until shortener is implemented %>

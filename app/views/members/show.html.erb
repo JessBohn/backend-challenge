@@ -1,5 +1,7 @@
 <body>
   <h2><%= @member.name %></h2>
+  <!-- insert form render for member search of NON-friends only -->
+  <!-- display results below search bar and the relationship chain if there is one -->
   <p>Website: <%= @member.website %><br>
     Shortcut: <i>short_url</i><br>
     Headers: <br>
@@ -8,6 +10,7 @@
         <li><%= tag %></li>
       <% end %>
     </ul><br>
+    <!-- add simple form for Friendship creation that takes the @member id and a name -->
     Friends:<br>
     <ul>
       <% @member.friends.each do |friend| %>
