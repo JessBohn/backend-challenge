@@ -1,4 +1,6 @@
 class Member < ApplicationRecord
+   has_many :friendships
+   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   # Tried using postgres/ACtiveRecord array query using ANY? but only works with exact matches
   # The below method works, but is overly complex and makes too many calls
   # Will refactor this after tackling other requirements
