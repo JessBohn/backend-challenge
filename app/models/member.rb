@@ -17,4 +17,12 @@ class Member < ApplicationRecord
     end
     members
   end
+
+  def friends
+     friends = (friendships + inverse_friendships).compact
+  end
+
+  def friend?(user)
+     friends.include?(user)
+  end
 end
